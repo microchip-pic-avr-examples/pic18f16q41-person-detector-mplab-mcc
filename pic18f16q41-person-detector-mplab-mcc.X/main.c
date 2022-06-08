@@ -49,7 +49,7 @@ int main(void) {
         result = ADCC_GetSingleConversion(Analog_Input);
         bool CLCRead = CLC3_OutputStatusGet();
         if (CLCRead) {
-            if (var != 0) {
+            if  (var != 0) {
             printf("Result: %d \n\r", result);
             printf("Person Undetected7 \n\r");
             LED0_SetHigh();
