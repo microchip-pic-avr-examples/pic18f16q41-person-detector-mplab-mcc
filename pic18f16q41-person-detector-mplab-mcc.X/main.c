@@ -56,7 +56,7 @@ int main(void) {
             var = 0;
             }  
           }  
-        else if (!CLCRead) {
+        else  if (!CLCRead) {
             if(var == 0) printf("Person Detected7 \n\r");
           if (T2CONbits.ON == 0){
             LED0_Toggle();
