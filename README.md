@@ -83,8 +83,6 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 #### **Curiosity Nano Base for Click Boards with PIR Click project setup:**  
 
-<br>
-
 ![BoardSetup](./images/BaseBoardSetUp.PNG)
 
 
