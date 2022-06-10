@@ -85,7 +85,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 <br>
 
-![CuriosityNanoBaseandClickBoardSetup](./images/ProjectSetUp.PNG)
+![CuriosityNanoBaseandClickBoardSetup](./images/ProjectSetUp.png)
 
 
 
@@ -112,14 +112,14 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Set Configuration Bits
     * See below image for Configuration Bits
 
-![ConfigurationBits](./images/ConfigurationBits.PNG)
+![ConfigurationBits](./images/ConfigurationBits.png)
 
 <br>
 
 * Modify the Clock Control
   * See below image for Configuration Bits
 
-![ClockControl](./images/ClockControl.PNG)
+![ClockControl](./images/ClockControl.png)
 
 <br>
 <br>
@@ -134,7 +134,7 @@ Operational Amplifier (OPA)
   * Drivers &rarr; OPAMP &rarr; OPA1
   * Once the peripheral is added, modify the peripheral to match the below image.
 
-![OpAmpConfiguration](./images/OpAmpConfiguration.PNG)
+![OpAmpConfiguration](./images/OpAmpConfiguration.png)
 
 <br>
 <br>
@@ -146,7 +146,7 @@ Analog-to-Digital-Converter (ADCC)
   * Drivers &rarr; ADCC &rarr; ADCC
   * Once the peripheral is added, modify the peripheral to match the setup in the image below.
 
-![ADCCConfiguration](./images/ADCC.PNG)
+![ADCCConfiguration](./images/ADCC.png)
 
 <br>
 <br>
@@ -159,7 +159,7 @@ Digital-to-Analog-Converter (DAC)
   * Drivers &rarr; DAC &rarr; DAC2
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![DACConfiguration](./images/DAC.PNG)
+![DACConfiguration](./images/DAC.png)
 
 <br>
 <br>
@@ -171,7 +171,7 @@ Comparator (CMP)
   * Drivers → CMP → CMP1
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![ComparatorConfiguration](./images/Comparator.PNG)
+![ComparatorConfiguration](./images/Comparator.png)
 
 <br>
 <br>
@@ -183,7 +183,7 @@ Timer (TMR)
   * Drivers &rarr; Timer &rarr; TMR4
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![Timer4Configuration](./images/Timer4.PNG)
+![Timer4Configuration](./images/Timer4.png)
 
 <br>
 <br>
@@ -201,17 +201,17 @@ Configurable Logic Cell (CLC)
 
 * CLC1
 
-![CLC1Configuration](./images/CLC1.PNG)
+![CLC1Configuration](./images/CLC1.png)
 
 
 * CLC2
 
-![CLC2Configuration](./images/CLC2.PNG)
+![CLC2Configuration](./images/CLC2.png)
 
 
 * CLC3
 
-![CLC3Configuration](./images/CLC3.PNG)
+![CLC3Configuration](./images/CLC3.png)
 
 <br>
 <br>
@@ -224,7 +224,7 @@ Timer (TMR)
   * Once the peripheral is added, modify the peripheral to match the image below.
 
 
-![Timer2Configuration](./images/Timer2.PNG)
+![Timer2Configuration](./images/Timer2.png)
 
 
 
@@ -238,7 +238,7 @@ Universal Asynchronous Receiver-Transmitter (UART)
   * Drivers &rarr; UART &rarr; UART1
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![UARTConfiguration](./images/UART.PNG)
+![UARTConfiguration](./images/UART.png)
 
 <br>
 <br>
@@ -269,7 +269,7 @@ This code example's signal connections are summarized in the following table
 
 Pin Allocation Table:
 
-![PinAllocationTable](./images/Pins.PNG)
+![PinAllocationTable](./images/Pins.png)
 
 <br>
 <br>
