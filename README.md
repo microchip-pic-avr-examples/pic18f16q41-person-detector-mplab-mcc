@@ -81,11 +81,11 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 <br>
 
-#### **Curiosity Nano Base for Click Boards with PIR Click project setup:**
+#### **Curiosity Nano Base for Click Boards with PIR Click project setup:**  
 
 <br>
 
-![CuriosityNanoBaseandClickBoardSetup](./images/ProjectSetUp.png)
+![BoardSetup](./images/BaseBoardSetUp.png)
 
 
 
@@ -127,7 +127,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
  **Step #3: Adding the Peripherals**
 
-Operational Amplifier (OPA)
+**Operational Amplifier (OPA)**
 
 
 * In Device Resources:
@@ -138,7 +138,8 @@ Operational Amplifier (OPA)
 
 <br>
 <br>
-Analog-to-Digital-Converter (ADCC)
+
+**Analog-to-Digital-Converter (ADCC)**
 
 *Note: The ADCC will measure the amplified PIR click output signal.*
 
@@ -153,7 +154,7 @@ Analog-to-Digital-Converter (ADCC)
 
 
 
-Digital-to-Analog-Converter (DAC)
+**Digital-to-Analog-Converter (DAC)**
 
 * In Device Resources:
   * Drivers &rarr; DAC &rarr; DAC2
@@ -165,7 +166,7 @@ Digital-to-Analog-Converter (DAC)
 <br>
 
 
-Comparator (CMP)
+**Comparator (CMP)**
 
 * In Device Resources:
   * Drivers → CMP → CMP1
@@ -177,7 +178,7 @@ Comparator (CMP)
 <br>
 
 
-Timer (TMR)
+**Timer (TMR)**
 
 * In Device Resources:
   * Drivers &rarr; Timer &rarr; TMR4
@@ -190,7 +191,7 @@ Timer (TMR)
 
 
 
-Configurable Logic Cell (CLC)
+**Configurable Logic Cell (CLC)**
 
 * In Device Resources:
   * Drivers &rarr; CLC &rarr; CLC1, CLC2, and CLC3
@@ -215,7 +216,8 @@ Configurable Logic Cell (CLC)
 
 <br>
 <br>
-Timer (TMR)
+
+**Timer (TMR)**
 
 *Note: Timer2 will determine how fast the onboard LED is blinking when presence is detected*
 
@@ -230,7 +232,8 @@ Timer (TMR)
 
 <br>
 <br>
-Universal Asynchronous Receiver-Transmitter (UART)
+
+**Universal Asynchronous Receiver-Transmitter (UART)**
 
 *Note: UART is used to send a to be displayed to MPLAB Data Visualizer indicating whether motion has been detected or not.*
 
