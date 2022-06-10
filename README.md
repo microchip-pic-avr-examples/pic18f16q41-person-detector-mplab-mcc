@@ -35,10 +35,10 @@
 The PIR Click board uses an infrared (IR) sensor that detects the heat signature of a warm-blooded animal compared to the background temperature in the area that the sensor is facing. The IR sensor generates an analog voltage of approximately 2V for a positive detection and 0V for no detection. This analog voltage is present on the AN pin of the PIR Click board. Signal conditioning of this raw analog signal is required to reject any interference from fluorescent light sources, and to sufficiently amplify the signal to make full use of the resolution of the Analog to Digital Converter (ADC) peripheral.  
 
 
-  ![Raw Analog Output Of PIR Click](images/RawAnalogOutputOfPIRClick.png)
+  ![Raw Analog Output Of PIR Click](./images/RawAnalogOutputOfPIRClick.png)
 
 
-<p>&nbsp;</p>
+<br>
 
 
 
@@ -50,7 +50,9 @@ The PIR Click board uses an infrared (IR) sensor that detects the heat signature
   The image below shows the CIPs and their interconnections.
 
   \***\*\* INCLUDE SCREENSHOT of High Level  Figure  \*\*\***
-  <p>&nbsp;</p>
+
+  <br>
+
 
 
   ###### Operational Amplifier (OPA)
@@ -58,7 +60,8 @@ The PIR Click board uses an infrared (IR) sensor that detects the heat signature
 The Operational Amplifier (OPA) was used to amplify the raw analog input coming from the PIR click. The raw analog output must be amplified to utilize the full resolution of the ADCC.   Using MPLABs Code Configurator (MCC), the OPA module was configured as a Non-Inverting Programmable Gain Amplifier with a gain of 1.3.  
 
 The configuration of the OPA will be shown in the Setup Section.
-<p>&nbsp;</p>
+
+<br>
 
 
 ###### Comparator (CMP)
@@ -66,7 +69,8 @@ The configuration of the OPA will be shown in the Setup Section.
 The Comparator (CMP) was used to indicate whether presence has been detected or not. With the DAC2 and the amplified PIR Click analog output connected to the comparator, the analog voltage levels are compared  to produce either a digital low or high output, determining whether presence has been detected or not. The DAC2 peripheral was set to generate a voltage to establish the Comparator threshold. Analog sensors, such as the sensor used on the PIR Click, have a natural tendency to drift over time. To rectify this issue, the comparator's internal hysteresis setting was used to help generate stable switching behavior.
 
 Configuration of the CMP will be shown in the Setup Section.
-<p>&nbsp;</p>
+
+<br>
 
 
 ###### Configurable Logic Cell (CLC)
@@ -74,18 +78,21 @@ Configuration of the CMP will be shown in the Setup Section.
 The drift of the PIR Click analog output over time may lead to false triggers. Additionally, use of the sensor under fluorescent lights causes noise to be introduced into the signal path. This sensor drift and introduced noise can lead to false triggers. This issue can be mitigated by using a Timer peripheral coupled with CLC peripherals. The TMR4, CLC1, CLC2 and CLC3 peripherals were used in conjunction to construct a software-less filter to resolve this issue.
 
 Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
-<p>&nbsp;</p>
+
+<br>
 
 #### **Curiosity Nano Base for Click Boards with PIR Click project setup:**
-<p>&nbsp;</p>
 
-![CuriosityNanoBaseandClickBoardSetup](images/ProjectSetUp.PNG)
+<br>
+
+![CuriosityNanoBaseandClickBoardSetup](./images/ProjectSetUp.PNG)
 
 
 
 
 ## Setup
-<p>&nbsp;</p>
+
+<br>
 
 
  **Step #1: Creating the Project**
@@ -97,38 +104,41 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * Enter a name for this project, such as *pic18f16q41*-*person-detector*
   * Name: “*pic18f16q41*-*person-detector*”
   * **Note: The project name cannot have any empty spaces**
-  <p>&nbsp;</p>
+  <br>
+  <br>
 
 **Step #2: MPLAB Code Configurator (MCC)**
 
   * Set Configuration Bits
     * See below image for Configuration Bits
 
-![ConfigurationBits](images/ConfigurationBits.PNG)
+![ConfigurationBits](./images/ConfigurationBits.PNG)
 
-<p>&nbsp;</p>
+<br>
 
 * Modify the Clock Control
   * See below image for Configuration Bits
 
-![ClockControl](images/ClockControl.PNG)
-<p>&nbsp;</p>
+![ClockControl](./images/ClockControl.PNG)
+
+<br>
+<br>
 
 
  **Step #3: Adding the Peripherals**
 
-<span style="color:Red">Operational Amplifier (OPA) </span>
+Operational Amplifier (OPA)
 
 
 * In Device Resources:
   * Drivers &rarr; OPAMP &rarr; OPA1
   * Once the peripheral is added, modify the peripheral to match the below image.
 
-![OpAmpConfiguration](images/OpAmpConfiguration.PNG)
+![OpAmpConfiguration](./images/OpAmpConfiguration.PNG)
 
-
-<p>&nbsp;</p>
-<span style="color:Red">Analog-to-Digital-Converter (ADCC) </span>
+<br>
+<br>
+Analog-to-Digital-Converter (ADCC)
 
 *Note: The ADCC will measure the amplified PIR click output signal.*
 
@@ -136,68 +146,76 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Drivers &rarr; ADCC &rarr; ADCC
   * Once the peripheral is added, modify the peripheral to match the setup in the image below.
 
-![ADCCConfiguration](images/ADCC.PNG)
-<p>&nbsp;</p>
+![ADCCConfiguration](./images/ADCC.PNG)
+
+<br>
+<br>
 
 
 
-
-<span style="color:Red">Digital-to-Analog-Converter (DAC) </span>
+Digital-to-Analog-Converter (DAC)
 
 * In Device Resources:
   * Drivers &rarr; DAC &rarr; DAC2
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![DACConfiguration](images/DAC.PNG)
-<p>&nbsp;</p>
+![DACConfiguration](./images/DAC.PNG)
+
+<br>
+<br>
 
 
-<span style="color:Red">Comparator (CMP) </span>
+Comparator (CMP)
 
 * In Device Resources:
   * Drivers → CMP → CMP1
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![ComparatorConfiguration](images/Comparator.PNG)
-<p>&nbsp;</p>
+![ComparatorConfiguration](./images/Comparator.PNG)
+
+<br>
+<br>
 
 
-<span style="color:Red">Timer (TMR) </span>
+Timer (TMR)
 
 * In Device Resources:
   * Drivers &rarr; Timer &rarr; TMR4
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![Timer4Configuration](images/Timer4.PNG)
-<p>&nbsp;</p>
+![Timer4Configuration](./images/Timer4.PNG)
+
+<br>
+<br>
 
 
 
-<span style="color:Red">Configurable Logic Cell (CLC) </span>
+Configurable Logic Cell (CLC)
 
 * In Device Resources:
   * Drivers &rarr; CLC &rarr; CLC1, CLC2, and CLC3
   * Once the peripheral is added, modify the peripherals to match the images below
 
 
-  <p>&nbsp;</p>
+  <br>
 
 * CLC1
 
-![CLC1Configuration](images/CLC1.PNG)
+![CLC1Configuration](./images/CLC1.PNG)
 
 
 * CLC2
 
-![CLC2Configuration](images/CLC2.PNG)
+![CLC2Configuration](./images/CLC2.PNG)
 
 
 * CLC3
 
-![CLC3Configuration](images/CLC3.PNG)
+![CLC3Configuration](./images/CLC3.PNG)
 
-<p>&nbsp;</p>
-<span style="color:Red">Timer (TMR) </span>
+<br>
+<br>
+Timer (TMR)
 
 *Note: Timer2 will determine how fast the onboard LED is blinking when presence is detected*
 
@@ -206,12 +224,13 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Once the peripheral is added, modify the peripheral to match the image below.
 
 
-![Timer2Configuration](images/Timer2.PNG)
+![Timer2Configuration](./images/Timer2.PNG)
 
 
 
-<p>&nbsp;</p>
-<span style="color:Red">Universal Asynchronous Receiver-Transmitter (UART)</span>
+<br>
+<br>
+Universal Asynchronous Receiver-Transmitter (UART)
 
 *Note: UART is used to send a to be displayed to MPLAB Data Visualizer indicating whether motion has been detected or not.*
 
@@ -219,8 +238,10 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Drivers &rarr; UART &rarr; UART1
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![UARTConfiguration](images/UART.PNG)
-<p>&nbsp;</p>
+![UARTConfiguration](./images/UART.PNG)
+
+<br>
+<br>
 
 
  **Step #4: Configuring the Pins**
@@ -243,23 +264,28 @@ This code example's signal connections are summarized in the following table
 |CLC3 Output|RA5|
 |UART TX|RB7|
 
-<p>&nbsp;</p>
+<br>
+<br>
 
-<span style="color:Red">Pin Allocation Table: </span>
+Pin Allocation Table:
 
-![PinAllocationTable](images/Pins.PNG)
-<p>&nbsp;</p>
+![PinAllocationTable](./images/Pins.PNG)
+
+<br>
+<br>
 
 **Step #5: Generate the project**
 
 - Click the generate button in MCC to create the appropriate header and source files for this configuration.
 
-<p>&nbsp;</p>
+<br>
+
 
 **Step #6: Modifying main.c**
 
 - Upon the generation being completed, the new MCC generated header and source files will be in the project window. Select the main.c file and you will see an empty while(1) loop where you can add your application code.
-<p>&nbsp;</p>
+<br>
+
 
 ```   
 int main(void) {
@@ -293,7 +319,9 @@ int main(void) {
 ```
 
 * Make and Program the Device
-<p>&nbsp;</p>
+
+<br>
+
 
 **Step #7: MPLAB Data Visualizer**
 
