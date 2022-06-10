@@ -32,7 +32,7 @@
 
 ## How does it work?
 
-The PIR Click board uses an infrared (IR) sensor that detects the heat signature of a warm-blooded animal compared to the background temperature in the area that the sensor is facing. The IR sensor generates an analog voltage of approximately 2V for a positive detection and 0V for no detection. This analog voltage is present on the AN pin of the PIR Click board. Signal conditioning of this raw analog signal is required to reject any interference from fluorescent light sources, and to sufficiently amplify the signal to make full use of the resolution of the Analog to Digital Converter (ADC) peripheral.
+The PIR Click board uses an infrared (IR) sensor that detects the heat signature of a warm-blooded animal compared to the background temperature in the area that the sensor is facing. The IR sensor generates an analog voltage of approximately 2V for a positive detection and 0V for no detection. This analog voltage is present on the AN pin of the PIR Click board. Signal conditioning of this raw analog signal is required to reject any interference from fluorescent light sources, and to sufficiently amplify the signal to make full use of the resolution of the Analog to Digital Converter (ADC) peripheral.  
 
 
 ![Raw Analog Output Of PIR Click](images/RawAnalogOutputOfPIRClick.PNG)
@@ -229,6 +229,7 @@ This code example's signal connections are summarized in the following table
 
 
 *Note: Please note that the PIR Click is used on mikroBUS™ socket #1 on the Curiosity Nano development board. If a different socket is being used, ensure to change the respective pins.*
+
 
 |Signal|Pin Selection|
 | :-: | :-: |
