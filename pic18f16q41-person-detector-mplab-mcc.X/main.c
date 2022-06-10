@@ -62,7 +62,7 @@ int main(void) {
             LED0_Toggle();
             T2CONbits.ON = 1;
             }
-         var = 1; //for single message display
+         var = 1; 
           }
        }
      }
