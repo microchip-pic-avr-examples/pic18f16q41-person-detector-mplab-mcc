@@ -85,7 +85,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 <br>
 
-![BoardSetup](./images/BaseBoardSetUp.png)
+![BoardSetup](./images/BaseBoardSetUp.PNG)
 
 
 
