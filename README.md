@@ -198,6 +198,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * In Device Resources:
   * Drivers &rarr; CLC &rarr; CLC1, CLC2, and CLC3
   * Once the peripheral is added, modify the peripherals to match the images below
+     * *Note: CLC1, CLC2 and CLC3 will all use the "2-input D flip-flop with R" Logic Cell Mode*
 
 
   <br>

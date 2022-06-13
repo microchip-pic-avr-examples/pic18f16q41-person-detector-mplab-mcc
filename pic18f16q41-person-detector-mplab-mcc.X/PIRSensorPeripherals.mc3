@@ -1,4 +1,4 @@
-<config configName="default" projectName="PIRSensorPeripherals" configVersion="1.1" device="PIC18F16Q41" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.4.4">
+<config configName="default" projectName="PIRSensorPeripherals" configVersion="1.1" device="PIC18F16Q41" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.4.1">
    <usedPackages class="java.util.ArrayList">
       <package packageName="@mchp-mcc/main-manager" version="3.1.1" contentType="MELODY">
          <modules class="java.util.ArrayList"/>
