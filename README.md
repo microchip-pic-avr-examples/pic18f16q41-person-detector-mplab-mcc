@@ -2,9 +2,9 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Update the title for pic18f16q41-person-detector-mplab-mcc here
+# Implementing a PIR Sensor using the PIC18F16Q41
 
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
+In this application, a PIR Click Board™ from MIKROE is used alongside the PIC18F16Q41 on the Curiosity Nano development board to detect movement which triggers the onboard LED when said movement is detected. Additionally, a string will be sent to MPLAB Data Visualizer serial terminal indicating whether motion has been detected or not. This demonstration displays the capabilities of the Core Independent Peripherals (CIPs) on the PIC18F16Q41.
 
 ## Related Documentation
 
@@ -21,7 +21,7 @@
 
 * [MPLAB® X IDE v6.0.0](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide)
 * [MPLAB Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator)
-  * Melody Library v.x (or later)
+  * Melody Library v5.1.4 (or later)
 * [MPLAB XC8 Compiler 2.36](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers)
 
 ## Hardware Used
@@ -83,7 +83,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 #### **Curiosity Nano Base for Click Boards with PIR Click project setup:**  
 
-![BoardSetup](./images/BaseBoardSetUp.png)
+![DemoBoardSetup](./images/PIRDemoBoard.png)
 
 
 
@@ -340,10 +340,8 @@ int main(void) {
 - If you wave your hand in front of the sensor, you will notice the terminal emulator displaying a message.
 
 
-## Operation
 
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
 
 ## Summary
 
-<!-- Summarize what the example has shown -->
+This demo has shown how to implement a PIR sensor using the CIP's on the PIC18F16Q41.
