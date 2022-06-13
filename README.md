@@ -246,9 +246,13 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 * In Device Resources:
   * Drivers &rarr; UART &rarr; UART1
-  * Once the peripheral is added, modify the peripheral to match the image below.
+  * Ensure to enable Redirect STDIO to UART, Enable Recieve, and Enable Transmit in UART1PLIB.
+  * Once the peripheral is added, modify the peripheral to match the images below.
+
 
 ![UARTConfiguration](./images/UART.png)
+
+![UARTPLIB](./images/UARTPLIB.png)
 
 <br>
 <br>
@@ -284,7 +288,7 @@ This code example's signal connections are summarized in the following table
 
 * Rename Pins RC2 (CMP1), RC2 (ADCC), and RC3 (OPA1) to: Analog_Input
 
-![PinNames](./images/PinNames.png)
+![PinNamesMCC](./images/PinNames.png)
 
 <br>
 
