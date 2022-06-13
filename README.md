@@ -252,7 +252,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 ![UARTConfiguration](./images/UART.png)
 
-![UARTPLIB](./images/UARTPLIB.png)
+![UARTPLIB](./images/UART1PLIB.png)
 
 <br>
 <br>
