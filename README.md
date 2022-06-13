@@ -89,6 +89,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 ![DemoBoardSetup](./images/PIRDemoBoard.png)
 
+<br>
 
 
 
@@ -352,6 +353,9 @@ int main(void) {
 ## Operation
 
 ![LiveDemoPIR](./images/LiveDemoGIF.gif)
+
+<br>
+
 
 ## Summary
 
