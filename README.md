@@ -298,7 +298,7 @@ Pin Allocation Table:
 int main(void) {
         SYSTEM_Initialize();
         adc_result_t result;
-        DAC2_SetOutput(208);
+        DAC2_SetOutput(208);   // This is the threshold value needed in order to obtain the most optimum sensitivity on the PIR sensor
         bool var = 0;
 
    while (1) {
@@ -317,7 +317,7 @@ int main(void) {
             printf("Person Detected \n\r");
             // printf("Result: %d \n\r", result);  // to print the detected ADC value, uncomment this line of code.
             }
-          if (T2CONbits.ON == 0){
+          if (T2CONbits.ON == 0) {
             LED0_Toggle();
             T2CONbits.ON = 1;
             }
