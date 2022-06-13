@@ -136,6 +136,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * In Device Resources:
   * Drivers &rarr; OPAMP &rarr; OPA1
   * Once the peripheral is added, modify the peripheral to match the below image.
+  * Ensure to change the custom name of the OPA to "Analog_Input" in the Pins tab.
 
 ![OpAmpConfiguration](./images/OpAmpConfiguration.png)
 
@@ -149,6 +150,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * In Device Resources:
   * Drivers &rarr; ADCC &rarr; ADCC
   * Once the peripheral is added, modify the peripheral to match the setup in the image below.
+  * Ensure to change the custom name of the ADC to "Analog_Input" in the Pins tab.
 
 ![ADCCConfiguration](./images/ADCC.png)
 
@@ -174,6 +176,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * In Device Resources:
   * Drivers → CMP → CMP1
   * Once the peripheral is added, modify the peripheral to match the image below.
+  * Ensure to change the custom name of the CMP1 to "Analog_Input" in the Pins tab.
 
 ![ComparatorConfiguration](./images/Comparator.png)
 
@@ -269,12 +272,23 @@ This code example's signal connections are summarized in the following table
 |Comparator Positive Input (C1IN1+)|No connection needed|
 |Comparator Negative Input (C1IN1-)|RC2|
 |CLC3 Output|RA5|
+|LED0|RC1|
 |UART TX|RB7|
 
 <br>
 <br>
 
-Pin Allocation Table:
+**Pin Renaming:**
+
+* Rename Pin RC1 to: LED0
+
+* Rename Pins RC2 (CMP1), RC2 (ADCC), and RC3 (OPA1) to: Analog_Input
+
+![PinNames](./images/PinNames.png)
+
+<br>
+
+**Pin Allocation Table:**
 
 ![PinAllocationTable](./images/Pins.png)
 
