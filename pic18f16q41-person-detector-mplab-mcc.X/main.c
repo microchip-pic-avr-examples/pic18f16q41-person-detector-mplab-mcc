@@ -50,14 +50,16 @@ int main(void) {
         bool CLCRead = CLC3_OutputStatusGet();
         if (CLCRead) {
             if  (var != 0) {
-            printf("Result: %d \n\r", result);
-            printf("Person Undetected7 \n\r");
+            printf("Person Undetected \n\r");
             LED0_SetHigh();
             var = 0;
             }  
           }  
         else  if (!CLCRead) {
-            if(var == 0) printf("Person Detected7 \n\r");
+            if(var == 0) { 
+            printf("Person Detected \n\r");
+            // printf("Result: %d \n\r", result);  // to print the detected ADC value, uncomment this line of code. 
+            }
           if (T2CONbits.ON == 0){
             LED0_Toggle();
             T2CONbits.ON = 1;

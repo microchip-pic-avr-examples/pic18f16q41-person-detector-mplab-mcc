@@ -143,7 +143,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 **Analog-to-Digital-Converter (ADCC)**
 
-*Note: The ADCC will measure the amplified PIR click output signal.*
+*Note: The ADCC will measure and print the detected values.*
 
 * In Device Resources:
   * Drivers &rarr; ADCC &rarr; ADCC
@@ -306,14 +306,16 @@ int main(void) {
         bool CLCRead = CLC3_OutputStatusGet();
         if (CLCRead) {
             if  (var != 0) {
-            printf("Result: %d \n\r", result);
-            printf("Person Undetected7 \n\r");
+            printf("Person Undetected \n\r");
             LED0_SetHigh();
             var = 0;
             }  
           }  
         else  if (!CLCRead) {
-            if(var == 0) printf("Person Detected7 \n\r");
+            if(var == 0) {
+            printf("Person Detected \n\r");
+            // printf("Result: %d \n\r", result);  // to print the detected ADC value, uncomment this line of code.
+            }
           if (T2CONbits.ON == 0){
             LED0_Toggle();
             T2CONbits.ON = 1;
@@ -322,6 +324,7 @@ int main(void) {
           }
        }
      }
+
 ```
 
 * Make and Program the Device
@@ -346,6 +349,9 @@ int main(void) {
 
 
 
+## Operation
+
+![LiveDemoPIR](./images/LiveDemoGIF.gif)
 
 ## Summary
 
