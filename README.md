@@ -51,7 +51,7 @@ The PIR Click board uses an infrared (IR) sensor that detects the heat signature
 
   <br>
 
-  ![HighLevelDiagram](./images/CIPDiagram.png)
+  ![HighLevelCIPDiagram](./images/CIPDiagram.png)
 
   <br>
 
