@@ -57,7 +57,7 @@ The PIR Click board uses an infrared (IR) sensor that detects the heat signature
 
 
 
-  ###### Operational Amplifier (OPA) 
+  ###### Operational Amplifier (OPA)
 
 The Operational Amplifier (OPA) was used to amplify the raw analog input coming from the PIR click. The raw analog output must be amplified to utilize the full resolution of the ADCC.   Using MPLABs Code Configurator (MCC), the OPA module was configured as a Non-Inverting Programmable Gain Amplifier with a gain of 1.3.  
 
@@ -370,7 +370,7 @@ int main(void) {
 
 ## Operation
 
-![LiveDemoPIR2](./images/DemoGIF.gif)
+![LiveDemoPIRProject](./images/DemoProject.gif)
 
 <br>
 
