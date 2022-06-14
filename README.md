@@ -2,7 +2,7 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Implementing a PIR Sensor using the PIC18F16Q41
+# Implementing a PIR Sensor using the PIC18F16Q41 
 
 In this application, a PIR Click Board™ from MIKROE is used alongside the PIC18F16Q41 on the Curiosity Nano development board to detect movement which triggers the onboard LED when said movement is detected. Additionally, a string will be sent to MPLAB Data Visualizer serial terminal indicating whether motion has been detected or not. This demonstration displays the capabilities of the Core Independent Peripherals (CIPs) on the PIC18F16Q41.
 
@@ -136,7 +136,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * In Device Resources:
   * Drivers &rarr; OPAMP &rarr; OPA1
   * Once the peripheral is added, modify the peripheral to match the below image.
-  
+
 
 ![OpAmpConfiguration](./images/OpAmpConfiguration.png)
 
