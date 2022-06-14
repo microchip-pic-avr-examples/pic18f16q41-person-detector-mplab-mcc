@@ -136,7 +136,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * In Device Resources:
   * Drivers &rarr; OPAMP &rarr; OPA1
   * Once the peripheral is added, modify the peripheral to match the below image.
-  * Ensure to change the custom name of the OPA to "Analog_Input" in the Pins tab.
+  
 
 ![OpAmpConfiguration](./images/OpAmpConfiguration.png)
 
@@ -150,7 +150,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * In Device Resources:
   * Drivers &rarr; ADCC &rarr; ADCC
   * Once the peripheral is added, modify the peripheral to match the setup in the image below.
-  * Ensure to change the custom name of the ADC to "Analog_Input" in the Pins tab.
+
 
 ![ADCCConfiguration](./images/ADCC.png)
 
@@ -176,7 +176,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * In Device Resources:
   * Drivers → CMP → CMP1
   * Once the peripheral is added, modify the peripheral to match the image below.
-  * Ensure to change the custom name of the CMP1 to "Analog_Input" in the Pins tab.
+
 
 ![ComparatorConfiguration](./images/Comparator.png)
 
