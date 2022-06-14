@@ -370,9 +370,11 @@ int main(void) {
 
 ## Operation
 
-![LiveDemoPIR](./images/LiveDemoGIF.gif)
+![LiveDemoPIR2](./images/DemoGIF.gif)
 
 <br>
+
+
 
 
 ## Summary
