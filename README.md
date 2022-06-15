@@ -2,7 +2,7 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Implementing a PIR Sensor using the PIC18F16Q41 
+# Implementing a PIR Sensor using the PIC18F16Q41
 
 In this application, a PIR Click Board™ from MIKROE is used alongside the PIC18F16Q41 on the Curiosity Nano development board to detect movement which triggers the onboard LED when said movement is detected. Additionally, a string will be sent to MPLAB Data Visualizer serial terminal indicating whether motion has been detected or not. This demonstration displays the capabilities of the Core Independent Peripherals (CIPs) on the PIC18F16Q41.
 
@@ -112,7 +112,8 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
 **Step #2: MPLAB Code Configurator (MCC)**
 
-  * Set Configuration Bits
+  * Open MCC by clicking the blue "MCC shield in the top toolbar
+  * Set Configuration Bits. Can be accessed under "system" in the Resource Management(MCC) tab
     * See below image for Configuration Bits
 
 ![ConfigurationBits](./images/ConfigurationBits.png)
@@ -120,7 +121,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 <br>
 
 * Modify the Clock Control
-  * See below image for Configuration Bits
+  * See below image for Configuration Bits. Can be accessed under "system" in the Resource Management(MCC) tab
 
 ![ClockControl](./images/ClockControl.png)
 
@@ -174,7 +175,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 **Comparator (CMP)**
 
 * In Device Resources:
-  * Drivers → CMP → CMP1
+  * Drivers → Comparator → CMP1
   * Once the peripheral is added, modify the peripheral to match the image below.
 
 
