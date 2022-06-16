@@ -2,9 +2,9 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Implementing a PIR Sensor using the PIC18F16Q41
+# Detecting people with a PIR sensor on the PIC18F16Q41 Microcontroller
 
-In this application, a PIR Click Board™ from MIKROE is used alongside the PIC18F16Q41 on the Curiosity Nano development board to detect movement which triggers the onboard LED when said movement is detected. Additionally, a string will be sent to MPLAB Data Visualizer serial terminal indicating whether motion has been detected or not. This demonstration displays the capabilities of the Core Independent Peripherals (CIPs) on the PIC18F16Q41.
+In this application, a PIR Click Board™ from MikroElektronika (MikroE) is used alongside the PIC18F16Q41 on the Curiosity Nano development board. When movement is detecting, the LED is triggered by the microcontroller. Additionally, a string will also be sent to MPLAB Data Visualizer serial terminal indicating whether motion has been detected or not. This demonstration displays the capabilities of the Core Independent Peripherals (CIPs) on the PIC18F16Q41.
 
 ## Related Documentation
 
@@ -22,7 +22,7 @@ In this application, a PIR Click Board™ from MIKROE is used alongside the PIC1
 * [MPLAB® X IDE v6.0.0](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide)
 * [MPLAB Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator)
   * Melody Library v5.1.4 (or later)
-* [MPLAB XC8 Compiler 2.36](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers)
+* [MPLAB XC8 Compiler v2.36](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers)
 
 ## Hardware Used
 
@@ -32,7 +32,7 @@ In this application, a PIR Click Board™ from MIKROE is used alongside the PIC1
 
 ## How does it work?
 
-The PIR Click board uses an infrared (IR) sensor that detects the heat signature of a warm-blooded animal compared to the background temperature in the area that the sensor is facing. The IR sensor generates an analog voltage of approximately 2V for a positive detection and 0V for no detection. This analog voltage is present on the AN pin of the PIR Click board. Signal conditioning of this raw analog signal is required to reject any interference from fluorescent light sources, and to sufficiently amplify the signal to make full use of the resolution of the Analog to Digital Converter (ADC) peripheral.  
+The PIR Click board uses an Passive InfraRed (PIR) sensor that detects the heat signature of a warm-blooded animal compared to the background temperature in the area that the sensor is facing. The PIR click generates an analog voltage of approximately 2V for a positive detection and 0V for no detection. Signal conditioning of this raw analog signal is required to reject any interference from fluorescent light sources, and to sufficiently amplify the signal to make full use of the resolution of the Analog to Digital Converter (ADC) peripheral.  
 
 
   ![Raw Analog Output Of PIR Click](./images/RawAnalogOutputOfPIRClick.png)
@@ -59,7 +59,7 @@ The PIR Click board uses an infrared (IR) sensor that detects the heat signature
 
   ###### Operational Amplifier (OPA)
 
-The Operational Amplifier (OPA) was used to amplify the raw analog input coming from the PIR click. The raw analog output must be amplified to utilize the full resolution of the ADCC.   Using MPLABs Code Configurator (MCC), the OPA module was configured as a Non-Inverting Programmable Gain Amplifier with a gain of 1.3.  
+The Operational Amplifier (OPA) was used to amplify the raw analog input coming from the PIR click. The raw analog output must be amplified to utilize the full resolution of the ADCC. Using MPLAB Code Configurator (MCC), the OPA module was configured as a Non-Inverting Programmable Gain Amplifier with a gain of 1.3.    
 
 The configuration of the OPA will be shown in the Setup Section.
 
@@ -68,7 +68,7 @@ The configuration of the OPA will be shown in the Setup Section.
 
 ###### Comparator (CMP)
 
-The Comparator (CMP) was used to indicate whether presence has been detected or not. With the DAC2 and the amplified PIR Click analog output connected to the comparator, the analog voltage levels are compared  to produce either a digital low or high output, determining whether presence has been detected or not. The DAC2 peripheral was set to generate a voltage to establish the Comparator threshold. Analog sensors, such as the sensor used on the PIR Click, have a natural tendency to drift over time. To rectify this issue, the comparator's internal hysteresis setting was used to help generate stable switching behavior.
+The Comparator (CMP) was used to indicate whether presence has been detected or not. With the DAC2 and the amplified PIR Click analog output connected to the comparator, the analog voltage levels are compared  to produce either a digital low or high output, determining whether presence has been detected or not. The DAC2 peripheral was set to generate a voltage to establish the Comparator threshold. Analog sensors, such as the sensor used on the PIR Click, have some amount of electrical noise, which can cause false triggers. To rectify this issue, the comparator's internal hysteresis setting was used to help generate stable switching behavior.
 
 Configuration of the CMP will be shown in the Setup Section.
 
@@ -77,7 +77,7 @@ Configuration of the CMP will be shown in the Setup Section.
 
 ###### Configurable Logic Cell (CLC)
 
-The drift of the PIR Click analog output over time may lead to false triggers. Additionally, use of the sensor under fluorescent lights causes noise to be introduced into the signal path. This sensor drift and introduced noise can lead to false triggers. This issue can be mitigated by using a Timer peripheral coupled with CLC peripherals. The TMR4, CLC1, CLC2 and CLC3 peripherals were used in conjunction to construct a software-less filter to resolve this issue.
+The drift of the PIR Click analog output over time may lead to false triggers. Additionally, use of the sensor under fluorescent lights causes noise to be introduced into the signal path. This introduced noise can lead to false triggers. This can be mitigated by using a Timer peripheral coupled with CLC peripherals. The TMR4, CLC1, CLC2 and CLC3 peripherals were used in conjunction to construct a software-less filter to resolve this issue.
 
 Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
