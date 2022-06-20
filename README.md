@@ -4,31 +4,27 @@
 
 # Detecting people with a PIR sensor on the PIC18F16Q41 Microcontroller
 
-In this application, a PIR Click Board™ from MikroElektronika (MikroE) is used alongside the PIC18F16Q41 on the Curiosity Nano development board. When movement is detecting, the LED is triggered by the microcontroller. Additionally, a string will also be sent to MPLAB Data Visualizer serial terminal indicating whether motion has been detected or not. This demonstration displays the capabilities of the Core Independent Peripherals (CIPs) on the PIC18F16Q41.
+In this application, a PIR Click Board™ from MikroElektronika (MikroE) is used alongside the PIC18F16Q41 on the Curiosity Nano development board. When a person is detected, the LED is triggered by the microcontroller. Additionally, a message will also be sent to MPLAB Data Visualizer serial terminal to indicate when a person has been detected or not. This demonstration displays the capabilities of the Core Independent Peripherals (CIPs) on the PIC18F16Q41.
 
 ## Related Documentation
 
 * [PIC18F16Q41 Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18F06-16Q41-DataSheet-40002214C.pdf)
-
-* [PIC18F16Q41 Device Page](https://www.microchip.com/wwwproducts/en/PIC18F16Q41)
-
+* [PIC18F16Q41 Device Page](https://www.microchip.com/en-us/product/PIC18F16Q41?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic1816q41-person-detector-mplab-mcc)
 * [PIC18F16Q41 Curiosity Nano Users Guide](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18F16Q41-Curiosity-Nano-Hardware-User-Guide-DS50003048A.pdf)
-* [MPLAB Data Visualizer Plugin or other serial terminal](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer)
-
-
+* [MPLAB Data Visualizer Plugin or other serial terminal](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic1816q41-person-detector-mplab-mcc)
 
 ## Software Used
 
-* [MPLAB® X IDE v6.0.0](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide)
-* [MPLAB Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator)
+* [MPLAB® X IDE v6.0.0](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic1816q41-person-detector-mplab-mcc)
+* [MPLAB Code Configurator (MCC)](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic1816q41-person-detector-mplab-mcc)
   * Melody Library v5.1.4 (or later)
-* [MPLAB XC8 Compiler v2.36](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers)
+* [MPLAB XC8 Compiler v2.36](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic1816q41-person-detector-mplab-mcc)
 
 ## Hardware Used
 
-* [PIC18F16Q41 Curiosity Nano (EV26Q64A)](https://www.microchip.com/en-us/development-tool/EV26Q64A)
-* [Curiosity Nano Base for Click Boards](https://www.microchip.com/en-us/development-tool/AC164162) (AC164162)
-* [MikroE PIR Click Board](https://www.mikroe.com/pir-click) (MIKROE-3339)
+* [PIC18F16Q41 Curiosity Nano (EV26Q64A)](https://www.microchip.com/en-us/development-tool/EV26Q64A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic1816q41-person-detector-mplab-mcc)
+* [Curiosity Nano Base for Click Boards (AC164162)](https://www.microchip.com/en-us/development-tool/AC164162?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic1816q41-person-detector-mplab-mcc)
+* [MikroE PIR Click Board (MIKROE-3339)](https://www.mikroe.com/pir-click)
 
 ## How does it work?
 
@@ -38,67 +34,41 @@ The PIR Click board uses an Passive InfraRed (PIR) sensor that detects the heat 
   ![Raw Analog Output Of PIR Click](./images/RawAnalogOutputOfPIRClick.png)
 
 
-<br>
+## Demo Overview
 
+The required signal conditioning for the analog signal from the PIR sensor is done using CIPs, which includes the operational amplifier (OPA), Analog to Digital Converter with Computation (ADCC), Digital to Analog Converter (DAC), Configurable Logic Cells (CLC) and Timer 4 (TMR4). The CLCs and TMR4 significantly reduce the software overhead to filter out noise, as all of the signal conditioning is done in hardware.
 
+The image below shows the CIPs and their interconnections.  
 
+![High Level CIP Diagram](./images/DiagramCIP.png)
 
-  #### **Demo Overview**
+### Operational Amplifier (OPA)
 
-  The required signal conditioning for the analog signal from the PIR sensor is done using CIPs, and includes the operational amplifier (OPA), Analog to Digital Converter with Computation (ADCC), Digital to Analog Converter (DAC), Configurable Logic Cells (CLC). Timer 4 (TMR4). The use of these CLCs significantly reduces the software overhead as all of the signal conditioning is done in hardware.
-
-  The image below shows the CIPs and their interconnections.
-
-  <br>
-
-  ![HighLevelCIPDiagram](./images/DiagramCIP.png)
-
-  <br>
-
-
-
-  ###### Operational Amplifier (OPA)
-
-The Operational Amplifier (OPA) was used to amplify the raw analog input coming from the PIR click. The raw analog output must be amplified to utilize the full resolution of the ADCC. Using MPLAB Code Configurator (MCC), the OPA module was configured as a Non-Inverting Programmable Gain Amplifier with a gain of 1.3.    
+The Operational Amplifier (OPA) is used to amplify the raw analog input coming from the PIR click. The raw analog output must be amplified to utilize the full resolution of the ADCC. Using MPLAB Code Configurator (MCC), the OPA module was configured as a Non-Inverting Programmable Gain Amplifier with a gain of 1.3.    
 
 The configuration of the OPA will be shown in the Setup Section.
 
-<br>
+### Comparator (CMP)
 
+The CMP is used to indicate whether presence has been detected or not. With DAC2 and the amplified PIR Click analog output connected to the comparator, the comparator will produce either a digital output, that is used to determine whether a person has been detected or not. The DAC2 peripheral generates a voltage to establish the CMP threshold.
 
-###### Comparator (CMP)
-
-The Comparator (CMP) was used to indicate whether presence has been detected or not. With the DAC2 and the amplified PIR Click analog output connected to the comparator, the analog voltage levels are compared  to produce either a digital low or high output, determining whether presence has been detected or not. The DAC2 peripheral was set to generate a voltage to establish the Comparator threshold. Analog sensors, such as the sensor used on the PIR Click, have some amount of electrical noise, which can cause false triggers. To rectify this issue, the comparator's internal hysteresis setting was used to help generate stable switching behavior.
+Analog sensors, such as the sensor used on the PIR Click, have some amount of electrical noise, which can cause false triggers. To rectify this issue, the comparator's internal hysteresis setting was used to help generate stable switching behavior.
 
 Configuration of the CMP will be shown in the Setup Section.
 
-<br>
+### Configurable Logic Cell (CLC)
 
-
-###### Configurable Logic Cell (CLC)
-
-The drift of the PIR Click analog output over time may lead to false triggers. Additionally, use of the sensor under fluorescent lights causes noise to be introduced into the signal path. This introduced noise can lead to false triggers. This can be mitigated by using a Timer peripheral coupled with CLC peripherals. The TMR4, CLC1, CLC2 and CLC3 peripherals were used in conjunction to construct a software-less filter to resolve this issue.
+The drift of the PIR Click analog output over time may lead to false triggers. Additionally, the use of the sensor under fluorescent lights introduces noise into the signal path. The introduced noise can lead to false triggers. This can be mitigated by using a Timer peripheral coupled with CLC peripherals. TMR4, CLC1, CLC2 and CLC3 peripherals were used together to construct a software-less digital filter to resolve this issue.
 
 Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
-<br>
-
-#### **Curiosity Nano Base for Click Boards with PIR Click project setup:**  
-
-
-
-
-
-![DemoBoardSetup](./images/PIRDemoBoard.png)
-
-<br>
-
-
+*Curiosity Nano Base for Click Boards with PIR Click*
+![Demo Board](./images/PIRDemoBoard.png)
 
 ## Setup
 
 
- **Step #1: Creating the Project**
+### Step #1: Creating the Project
 
 * On the toolbar, click on New Project
 * Microchip Embedded; Standalone Project
@@ -107,42 +77,30 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 * Enter a name for this project, such as *pic18f16q41*-*person-detector*
   * Name: “*pic18f16q41*-*person-detector*”
   * **Note: The project name cannot have any empty spaces**
-  <br>
-  <br>
 
-**Step #2: MPLAB Code Configurator (MCC)**
+### Step #2: MPLAB Code Configurator (MCC)
 
   * Open MCC by clicking the blue "MCC shield in the top toolbar
   * Set Configuration Bits. Can be accessed under "system" in the Resource Management(MCC) tab
-    * See below image for Configuration Bits
+    * See below image for configuration bits
 
-![ConfigurationBits](./images/ConfigurationBits.png)
-
-<br>
+![Configuration Bits](./images/ConfigurationBits.png)
 
 * Modify the Clock Control
-  * See below image for Configuration Bits. Can be accessed under "system" in the Resource Management(MCC) tab
+  * See below image for Configuration Bits. Can be accessed under "system" in the Resource Management (MCC) tab
 
-![ClockControl](./images/ClockControl.png)
+![Clock Control](./images/ClockControl.png)
 
-<br>
-<br>
-
-
- **Step #3: Adding the Peripherals**
+### Step #3: Adding the Peripherals
 
 **Operational Amplifier (OPA)**
-
 
 * In Device Resources:
   * Drivers &rarr; OPAMP &rarr; OPA1
   * Once the peripheral is added, modify the peripheral to match the below image.
 
 
-![OpAmpConfiguration](./images/OpAmpConfiguration.png)
-
-<br>
-<br>
+![OPA Configuration](./images/OpAmpConfiguration.png)  
 
 **Analog-to-Digital-Converter (ADCC)**
 
@@ -152,13 +110,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Drivers &rarr; ADCC &rarr; ADCC
   * Once the peripheral is added, modify the peripheral to match the setup in the image below.
 
-
-![ADCCConfiguration](./images/ADCC.png)
-
-<br>
-<br>
-
-
+![ADCC Configuration](./images/ADCC.png)  
 
 **Digital-to-Analog-Converter (DAC)**
 
@@ -166,11 +118,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Drivers &rarr; DAC &rarr; DAC2
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![DACConfiguration](./images/DAC.png)
-
-<br>
-<br>
-
+![DAC Configuration](./images/DAC.png)  
 
 **Comparator (CMP)**
 
@@ -178,12 +126,7 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Drivers → Comparator → CMP1
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-
-![ComparatorConfiguration](./images/Comparator.png)
-
-<br>
-<br>
-
+![Comparator Configuration](./images/Comparator.png)
 
 **Timer (TMR)**
 
@@ -191,55 +134,37 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Drivers &rarr; Timer &rarr; TMR4
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-![Timer4Configuration](./images/Timer4.png)
-
-<br>
-<br>
-
-
+![TMR4 Configuration](./images/Timer4.png)
 
 **Configurable Logic Cell (CLC)**
 
 * In Device Resources:
   * Drivers &rarr; CLC &rarr; CLC1, CLC2, and CLC3
   * Once the peripheral is added, modify the peripherals to match the images below
-     * *Note: CLC1, CLC2 and CLC3 will all use the "2-input D flip-flop with R" Logic Cell Mode*
-
-
-  <br>
+     * *Note: CLC1, CLC2 and CLC3 will all use the "2-input D flip-flop with R" Logic Cell Mode*  
 
 * CLC1
 
-![CLC1Configuration](./images/CLC1.png)
+![CLC1 Configuration](./images/CLC1.png)
 
 
 * CLC2
 
-![CLC2Configuration](./images/CLC2.png)
-
+![CLC2 Configuration](./images/CLC2.png)
 
 * CLC3
 
-![CLC3Configuration](./images/CLC3.png)
+![CLC3 Configuration](./images/CLC3.png)
 
-<br>
-<br>
+**Timer 2 (TMR2)**
 
-**Timer (TMR)**
-
-*Note: Timer2 will determine how fast the onboard LED is blinking when presence is detected*
+*Note: TMR2 will determine how fast the onboard LED is blinking when presence is detected*
 
 * In Device Resources:
   * Drivers &rarr; TMR &rarr; TMR2
   * Once the peripheral is added, modify the peripheral to match the image below.
 
-
-![Timer2Configuration](./images/Timer2.png)
-
-
-
-<br>
-<br>
+![Timer 2 Configuration](./images/Timer2.png)  
 
 **Universal Asynchronous Receiver-Transmitter (UART)**
 
@@ -250,21 +175,16 @@ Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
   * Ensure to enable Redirect STDIO to UART, Enable Recieve, and Enable Transmit in UART1PLIB.
   * Once the peripheral is added, modify the peripheral to match the images below.
 
+![UART Configuration](./images/UART.png)
 
-![UARTConfiguration](./images/UART.png)
+![UART1PLIB](./images/UART1PLIB.png)  
 
-![UARTPLIB](./images/UART1PLIB.png)
-
-<br>
-<br>
-
-
- **Step #4: Configuring the Pins**
+### Step #4: Configuring the Pins
 
 This code example's signal connections are summarized in the following table
 
 
-*Note: Please note that the PIR Click is used on mikroBUS™ socket #1 on the Curiosity Nano development board. If a different socket is being used, ensure to change the respective pins.*
+*Note: Please note that the PIR Click is used on mikroBUS™ socket #1 on the Curiosity Nano development board. If a different socket is being used, be sure to change the respective pins.*
 
 
 |Signal|Pin Selection|
@@ -278,40 +198,26 @@ This code example's signal connections are summarized in the following table
 |Comparator Negative Input (C1IN1-)|RC2|
 |CLC3 Output|RA5|
 |LED0|RC1|
-|UART TX|RB7|
-
-<br>
-<br>
+|UART TX|RB7|  
 
 **Pin Renaming:**
 
 * Rename Pin RC1 to: LED0
+* Rename Pins RC2 (CMP1), RC2 (ADCC), and RC2 (OPA1) to Analog_Input
 
-* Rename Pins RC2 (CMP1), RC2 (ADCC), and RC3 (OPA1) to: Analog_Input
-
-![PinNamesMCC](./images/PinNames.png)
-
-<br>
+![Pin Names MCC](./images/PinNames.png)  
 
 **Pin Allocation Table:**
 
-![PinAllocationTable](./images/Pins.png)
+![Pin Allocation Table](./images/Pins.png)  
 
-<br>
-<br>
-
-**Step #5: Generate the project**
+### Step #5: Generate the project
 
 - Click the generate button in MCC to create the appropriate header and source files for this configuration.
 
-<br>
+### Step #6: Modifying main.c
 
-
-**Step #6: Modifying main.c**
-
-- Upon the generation being completed, the new MCC generated header and source files will be in the project window. Select the main.c file and you will see an empty while(1) loop where you can add your application code.
-<br>
-
+- Upon the generation being completed, the new MCC generated header and source files will be in the project window. Select the main.c file and you will see an empty while(1) loop where you can add your application code.  
 
 ```   
 int main(void) {
@@ -347,12 +253,9 @@ int main(void) {
 
 ```
 
-* Make and Program the Device
+* Make and Program the Device  
 
-<br>
-
-
-**Step #7: MPLAB Data Visualizer**
+### Step #7: MPLAB Data Visualizer
 
 - For this project, the terminal program that is being used is MPLAB Data Visualizer
   - Open Data Visualizer by clicking the green “DV” shield in the top toolbar
@@ -367,16 +270,9 @@ int main(void) {
 - If everything is set up correctly, then the Data Visualizer should start displaying whether presence has been detected or not.
 - If you wave your hand in front of the sensor, you will notice the terminal emulator displaying a message.
 
-
-
 ## Operation
 
-![LiveDemoPIRProject](./images/DemoProject.gif)
-
-<br>
-
-
-
+![Live Demo PIR Project](./images/DemoProject.gif)  
 
 ## Summary
 

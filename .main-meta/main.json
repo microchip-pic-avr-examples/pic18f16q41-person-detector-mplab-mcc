@@ -7,7 +7,7 @@
         "version": "1.0.0",
         "displayName": "Detecting People with a PIR sensor on the PIC18F16Q41 Microcontroller",
         "projectName": "pic18f16q41-person-detector-mplab-mcc",
-        "shortDescription": "In this application, a PIR click from MIKROE is used with the PIC18F16Q41 on a Curiosity Nano development board to detect movement.",
+        "shortDescription": "In this application, a PIR click from MIKROE is used with the PIC18F16Q41 on a Curiosity Nano development board to detect people.",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=6.0.0"
@@ -15,7 +15,7 @@
         "compiler": [
             {
                 "name": "XC8",
-                "semverRange": "^2.32.0"
+                "semverRange": "^2.40.0"
             }
         ],
         "dfp": {
