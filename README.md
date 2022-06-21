@@ -62,7 +62,7 @@ The drift of the PIR Click analog output over time may lead to false triggers. A
 
 Configuration of TMR4, CLC1, CLC2 and CLC3 will be shown in the Setup Section.
 
-*Curiosity Nano Base for Click Boards with PIR Click*
+*Curiosity Nano Base for Click Boards with PIR Click*  
 ![Demo Board](./images/PIRDemoBoard.png)
 
 ## Setup
